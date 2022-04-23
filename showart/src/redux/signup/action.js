@@ -15,7 +15,7 @@ export const signupFailure = ()=>({
     type:SIGNUP_FAILURE,
 })
 
-export const signup = ({nickName,email, password,country,profileImage})=>(dispatch)=>{
+export const signup = ({nickName,email, password,country})=>(dispatch)=>{
     dispatch(signupLoading())
         fetch(`https://show-art.herokuapp.com/register`,{
           method:"post",
@@ -24,12 +24,10 @@ export const signup = ({nickName,email, password,country,profileImage})=>(dispat
               "email":email,
               "password":password,
               "country":country,
-              "profileImage":profileImage
-
             }),
           headers:{
               "Content-Type":"application/json"
           }
-        }).then(res=>res.json()).then((res)=>dispatch(signupSuccess({email:email,token:res.token})))
+        }).then(res=>res.json()).then((res)=>dispatch(signupSuccess({token:res.token})))
         .catch(error=>dispatch(signupFailure()))
 }

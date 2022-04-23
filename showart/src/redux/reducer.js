@@ -1,4 +1,4 @@
-import { EMAIL, NAV_SEARCH, OPEN_PAGE, NAV_BG, PASSWORD, EMAIL_STATUS } from "./action";
+import { EMAIL, NAV_SEARCH, OPEN_PAGE, NAV_BG, PASSWORD, EMAIL_STATUS } from "./action.js";
 
 
 export const NavBgReducer = (store={setNavBg:'transparent'},{type,payload})=>{

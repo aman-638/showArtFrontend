@@ -2,6 +2,8 @@ import { SIGNUP_FAILURE, SIGNUP_LOADING, SIGNUP_SUCCESS } from "./action"
 const initState = {
     loading:false,
     error:false,
+    token:"",
+    email:"",
 }
 
  export const signupReducer = (store=initState, {type, payload})=>{

@@ -6,7 +6,6 @@ import { Home } from "./Home/Home"
 // import {  } from "./Component/"
 
 export const Router =()=>{
-
     return (
         <div>
             <Routes>
