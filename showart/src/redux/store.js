@@ -1,8 +1,8 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { emailReducer, emailStatusReducer, NavBgReducer, navSearchReducer, pageReducer, passwordReducer } from "./reducer";
 import thunk from "redux-thunk";
-import { loginReducer } from "./Login/reducer.js";
-import { signupReducer } from "./Signup/reducer.js";
+import { loginReducer } from "./login/reducer";
+import { signupReducer } from "./signup/reducer";
 
 
 

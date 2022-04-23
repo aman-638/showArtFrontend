@@ -9,7 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { signup } from '../../redux/Signup/action';
+import { signup } from '../../redux/signup/action';
 
 const ColorButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText("#0063cc"),
