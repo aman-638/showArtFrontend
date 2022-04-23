@@ -44,12 +44,6 @@ const handleSubmit = ()=>{
   if(token) return <Navigate to="/login"/>
     return (
         <div className='register'>
-            <div className='regNav'>
-                <div style={{cursor:'pointer', display:"flex", fontSize:"30px", fontWeight:"700"}}>
-                            <div style={{color:"black"}}>Show</div>
-                            <div style={{color:"green"}}>Art</div>
-                </div>
-            </div>
         <div className='inputbox'>
         <Box component="form" sx={{'& > :not(style)': { m: 1 },}} noValidate autoComplete="off">
             <div style={{display:"flex", justifyContent:'center'}}> <h2>Register </h2></div>

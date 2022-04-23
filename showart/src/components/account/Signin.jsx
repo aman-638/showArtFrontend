@@ -37,14 +37,6 @@ export const Signin = ()=>{
     if(token) return <Navigate to="/"/>
     return (
         <div className='register'>
-            <Link to={'/'}>
-                <div className='regNav'>
-                <div style={{cursor:'pointer', display:"flex", fontSize:"30px", fontWeight:"700"}}>
-                    <div style={{color:"black"}}>Show</div>
-                    <div style={{color:"green"}}>Art</div>
-                </div>
-                </div>
-            </Link>
                 
         <div className='inputbox'>
         <Box component="form" sx={{'& > :not(style)': { m: 1 },}} noValidate autoComplete="off">
