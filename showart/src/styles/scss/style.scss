@@ -1,0 +1,551 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Roboto:wght@300;400&display=swap");
+@import "keyframes";
+@import "variables";
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-color: $white $black;
+  scrollbar-width: thin;
+}
+
+html {
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  background: $white;
+  font-family: "Lato", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  touch-action: manipulation;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+select {
+  padding: 0.5em;
+  font-size: $defaultFontSizeQuery;
+  outline: none;
+  border: none;
+  color: $black;
+  cursor: pointer;
+  box-shadow: 0.15em 0.25em 0.25em rgba(0, 0, 0, 0.25);
+  font-family: inherit;
+  @include font-weight();
+}
+
+form {
+  display: flex;
+  place-items: center;
+  justify-content: space-between;
+  flex: 1;
+  max-width: 30em;
+  border-bottom: 0.1em solid $black;
+}
+input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 0.5em;
+  font-size: $defaultFontSizeQuery;
+
+  &:focus {
+    outline: 0.1em dotted $black;
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  background: $white;
+  width: 100%;
+  box-shadow: 0 0.05em 0.5em #000;
+  z-index: 5;
+  height: auto;
+
+  .navbar-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 1em;
+    place-items: center;
+    height: 100%;
+    width: 95vw;
+    margin: 0 auto;
+    padding: 0.5em;
+  }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+  }
+}
+
+.desktop-nav {
+  display: none;
+  gap: 1em;
+
+  @media (min-width: 1200px) {
+    display: flex;
+  }
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.burger {
+  display: flex;
+  z-index: 9;
+  flex-direction: column;
+  place-items: center;
+  justify-content: space-evenly;
+  gap: 0.25em;
+  cursor: pointer;
+
+  @media (min-width: 1200px) {
+    display: none;
+  }
+
+  .bar {
+    width: 2.5em;
+    height: 0.2em;
+    background: $black;
+    transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.open {
+  :nth-child(1) {
+    transform: translate(0, 0.5em) rotate(40deg);
+  }
+  :nth-child(2) {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  :nth-child(3) {
+    transform: translate(0, -0.5em) rotate(-40deg);
+  }
+}
+
+.mobile-nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  place-items: center;
+  z-index: 3;
+  position: fixed;
+  transform: scale(0, 1);
+  top: 0;
+  left: 0;
+  background: $white;
+  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+  transform-origin: right;
+
+  a {
+    color: $black;
+    text-decoration: none;
+    transition: transform 0.5s ease;
+    border-bottom: 0.1em solid rgba(0, 0, 0, 0.15);
+  }
+
+  :nth-child(4) {
+    border-bottom: 0.1em dotted;
+  }
+}
+
+.active {
+  transform: scale(1, 1);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.loading {
+  width: 13em;
+  height: 13em;
+  margin: 1em auto;
+  border: 0.1em solid rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  border-bottom: 0.5em solid rgba(0, 0, 0, 0.15);
+  animation: loading-animation 5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    infinite alternate;
+  box-shadow: 0em 0em 0.5em rgba(0, 0, 0, 0.15);
+  position: relative;
+  background: url("../../images/world-38033_640.png") no-repeat center
+    center/100% 100%;
+}
+
+.gallery-main {
+  @media (max-width: 768px) {
+    padding: 3.5em 0em;
+    gap: 1em;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  place-items: center;
+  justify-content: center flex-start;
+  width: 100%;
+  min-height: calc(100vh - 5em);
+}
+
+.about-main {
+  min-height: calc(100vh - 5em);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  place-items: start center;
+  padding: 5em 0;
+
+  article {
+    display: grid;
+    place-items: center;
+    header {
+      width: min-content;
+      border-bottom: 0.1em solid rgba(225, 225, 225, 0.65);
+      h2 {
+        font-size: $desktopHeaderSizeQuery;
+
+        text-transform: uppercase;
+        font-family: "Roboto", sans-serif;
+      }
+    }
+
+    p {
+      max-width: 60ch;
+      text-align: center;
+      padding: 0 0.5em;
+      @include font-weight();
+      font-size: $smallerHeaderSizeQuery;
+    }
+  }
+}
+
+.current-search {
+  text-align: center;
+  font-size: $smallerHeaderSizeQuery;
+  padding: 1em 0 0 0;
+  @include font-weight();
+  span {
+    border-bottom: 0.1em solid rgba(0, 0, 0, 0.25);
+  }
+  @media (min-width: 1000px) {
+    padding: 2em 0 0 0;
+  }
+}
+
+// swiper
+.swiper-container {
+  width: 95vw;
+
+  .swiper-wrapper {
+    padding: 1em 0;
+  }
+
+  .swiper-slide {
+    padding: 0.5em;
+    width: 100%;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $black !important;
+    transform: scale(1.3);
+  }
+}
+
+// swiper
+
+.gallery-main__container {
+  min-height: calc(100vh - 10em);
+}
+
+.gallery-main__article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  place-items: center;
+  justify-content: space-between;
+  box-shadow: 0.15em 0.25em 0.25em rgba(0, 0, 0, 0.25);
+  animation: fade-in 0.5s ease-in-out;
+  overflow: hidden;
+  padding: 0.5em;
+  transition: all 0.25s cubic-bezier(0.47, 0, 0.745, 0.715);
+  position: relative;
+
+  img {
+    z-index: 1;
+    height: 20em;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .artist-info {
+    :first-child {
+      text-align: center;
+
+      font-size: $defaultFontSizeQuery;
+      font-style: italic;
+      font-family: "Montserrat", sans-serif;
+      border-bottom: 0.01em solid rgba(0, 0, 0, 0.1);
+      @include font-weight();
+    }
+  }
+}
+
+.btn-default {
+  outline: none;
+  background: #fff;
+  border: none;
+  padding: 0.25em 0.5em;
+  margin: 0.5em;
+  place-self: center;
+  font-size: $defaultFontSizeQuery;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-family: inherit;
+  box-shadow: inherit;
+  cursor: pointer;
+  text-align: center;
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: $black;
+    transform: scale(0, 1);
+    transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-origin: center;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: $white !important;
+    &::before {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+.my-favorites-main {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 2em;
+  min-height: calc(100vh - 5em);
+  @media (max-width: 768px) {
+    padding: 3.5em 0em;
+    gap: 1em;
+  }
+  header {
+    place-self: center;
+    padding: 1em 0 0 0;
+
+    @media (max-width: 768px) {
+      padding: 1em 0 0 0;
+    }
+    h2 {
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+  }
+}
+
+.art-details-main {
+  width: 100%;
+  display: flex;
+  place-items: center flex-start;
+  justify-content: center;
+  padding: 2.5em 0;
+  min-height: calc(100vh - 5em);
+  @media (max-width: 768px) {
+    padding: 5em 0em;
+  }
+}
+
+.art-details-main__article {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1em;
+  place-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1em;
+  overflow-x: hidden;
+  img {
+    filter: drop-shadow(0 0 0.15em $black);
+  }
+}
+
+.art-details-main__article--title {
+  display: flex;
+  position: relative;
+  place-items: center;
+  font-size: $desktopHeaderSizeQuery;
+}
+
+.add-to-favorites {
+  place-self: flex-end;
+  padding: 0.5em;
+  border: none;
+  background: transparent;
+  font-size: 2em;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+}
+
+.modal {
+  text-align: center;
+  text-transform: uppercase;
+  transform: translateX(100%);
+  animation: modal 0.25s ease forwards;
+  text-decoration: none;
+  border-bottom: none;
+  position: absolute;
+  display: flex;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-bottom: 0;
+  top: 0;
+  left: 100%;
+  background: $white;
+  font-size: $defaultFontSizeQuery !important;
+  border-bottom: 0;
+}
+
+.art-details-main__article-aside {
+  display: flex;
+  flex-direction: column;
+  max-width: 60ch;
+  justify-content: space-between;
+  place-self: flex-start;
+  gap: 2em;
+
+  h3 {
+    font-size: $smallerHeaderSizeQuery;
+    color: $black;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+  }
+
+  h4 {
+    font-size: 1.25em;
+    font-size: $smallerHeaderSizeQuery;
+    padding: 0.5em 0;
+  }
+
+  span {
+    color: #30475e;
+  }
+
+  p {
+    border-bottom: 0.05em solid rgba(0, 0, 0, 0.1);
+    font-size: $defaultFontSizeQuery;
+  }
+
+  .hashtag-cont {
+    border-bottom: none;
+    padding: 1em 0;
+    display: flex;
+    flex-flow: row wrap;
+    place-items: flex-start;
+    gap: 0.5em;
+  }
+
+  .hashtags {
+    background: #fff;
+    padding: 0.25em 0.5em;
+    border-radius: 9999px;
+    color: #ddd;
+    background: #303030;
+    font-size: $defaultFontSizeQuery;
+
+    &:focus {
+      outline: 0.1em dotted $black;
+    }
+
+    abbr {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  .art-details-main__article-aside--department {
+    h3 {
+      font-size: $defaultFontSizeQuery;
+      color: $black;
+      font-weight: 600;
+      font-family: "Roboto", sans-serif;
+    }
+  }
+}
+
+footer {
+  background: $black;
+  min-height: 10em;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  place-items: center;
+  a {
+    text-align: center;
+    color: $white;
+    text-decoration: underline dotted rgba(225, 225, 225, 0.65);
+    text-underline-offset: 0.25em;
+    font-size: $defaultFontSizeQuery;
+  }
+
+  .attribution {
+    p {
+      @include font-weight();
+      color: $white;
+      padding: 0 0.25em;
+      text-align: center;
+    }
+  }
+}
+
+.form-submit {
+  padding: 0.5em;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0.1em dotted $black;
+  }
+}

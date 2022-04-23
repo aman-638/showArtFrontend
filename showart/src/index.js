@@ -1,29 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css'
-
-
-import { Provider as ReduxProvider } from 'react-redux';
-import { store } from './redux/store';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ReduxProvider store={store}>
-        <App />
-      </ReduxProvider>
-    </BrowserRouter>
+    <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
-
 reportWebVitals();
-
-
-
-
