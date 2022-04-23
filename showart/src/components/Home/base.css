@@ -102,6 +102,22 @@
 #second>div{
    margin-bottom: 15px;
 }
+.filters{
+  width: 80%;
+  height: 50px;
+  color: white;
+  margin-top: -80px;
+  margin-left: 10%;
+}
+.filters>button{
+    margin-left: 10%;
+    background-color: grey;
+    color: white;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    
+}
 @media only screen and (max-width:685px) {
     #baseinp{
         width: 200px;

@@ -35,6 +35,23 @@ useEffect(() => {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
 }, [])
+
+const handlepaint = () =>{
+  axios.get('https://show-art.herokuapp.com/category?category=painting')
+  .then(res=>setData(res.data.showArt));
+}
+const handlesculp = () =>{
+  axios.get('https://show-art.herokuapp.com/category?category=sculpture')
+  .then(res=>setData(res.data.showArt));
+}
+const handlemandal = () =>{
+  axios.get('https://show-art.herokuapp.com/category?category=sculpture')
+  .then(res=>setData(res.data.showArt));
+}
+const handlesti = () =>{
+  axios.get('https://show-art.herokuapp.com/category?category=sculpture')
+  .then(res=>setData(res.data.showArt));
+}
     
     return(
         <div className='base' >
@@ -46,6 +63,9 @@ useEffect(() => {
                      transition:'all 1s'
                      }} className='signin'>
                    <Login /> 
+            </div>
+            <div className='filters'>
+              Sort By Category <button onClick={handlepaint}>Paintings</button> <button onClick={handlesculp}>Sculpture</button><button onClick={handlemandal}>Mandala</button><button onClick={handlesti}>Stitiching</button>
             </div>
             <div className='art_card'>
               {tdata.map((el,i)=>
@@ -90,3 +110,18 @@ const useOutsideClick = (ref) => {
   
     return outsieClick;
   };
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+ 
