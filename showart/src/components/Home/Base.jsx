@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState,useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +8,6 @@ import { Login } from './Login'
 import { SearchBox } from './SearchBox';
 
 export const Base = ()=>{
-  
     const page = useSelector((store)=>store.openPage);
     const dispatch = useDispatch();
     const buttonRef = useRef(null);
@@ -22,6 +22,11 @@ export const Base = ()=>{
     //responsive
     const [windowSize, setWindowSize] = useState(null)
 
+    let [tdata, setData] = useState([]);
+    useEffect(()=>{
+      axios.get('https://show-art.herokuapp.com/')
+      .then(res=>setData(res.data.showArt));
+    })
 
 useEffect(() => {
     const handleResize = () => 
@@ -39,7 +44,22 @@ useEffect(() => {
                      transition:'all 1s'
                      }} className='signin'>
                    <Login /> 
+            </div>
+            <div className='art_card'>
+              {tdata.map((el,i)=>
+                <div onClick={()=>{navigate(`/${el._id}`)}} key={el._id}>
+                    <div>
+                      <img src={el.art_img} alt="" />
+                    </div>
+                    <div id='second'>
+                       <div>Name: {el.art_name}</div>
+                       <div>Artist Name: {el.artist_name}</div>
+                       <div>Price:{el.price}</div>
+                       <div>City:{el.city}</div>
+                    </div>
                 </div>
+              )}
+            </div>
         </div>
     )
 }

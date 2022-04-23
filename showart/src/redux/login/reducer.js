@@ -5,6 +5,7 @@ const initState = {
     isAuthenticated:false,
     token:"",
     email:"",
+    nickName:""
 }
 
  export const loginReducer = (store=initState, {type, payload})=>{
@@ -18,7 +19,8 @@ const initState = {
                 error:false,
                 isAuthenticated:true,
                 token:payload.token,
-                email:payload.email
+                email:payload.email,
+                nickName:payload.nickName
             }
         case LOGIN_FAILURE:
             return {

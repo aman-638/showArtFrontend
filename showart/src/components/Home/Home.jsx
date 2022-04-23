@@ -3,7 +3,6 @@ import { Base } from "./Base"
 
 
 export const Home = ()=>{
-
     return (
         <div>
             <Navbar/>

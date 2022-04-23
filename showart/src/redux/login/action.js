@@ -26,6 +26,6 @@ export const login = ({email, password})=>(dispatch)=>{
           headers:{
               "Content-Type":"application/json"
           }
-        }).then(res=>res.json()).then((res)=>dispatch(loginSuccess({email:email,token:res.token})))
+        }).then(res=>res.json()).then((res)=>dispatch(loginSuccess({email:email,nickName:res.nickName,token:res.token})))
         .catch(error=>dispatch(loginFailure()))
 }
