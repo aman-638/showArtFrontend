@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { pageStatus } from '../../redux/action';
+import { pageStatus, setNavBg } from '../../redux/action';
 import './navbaar.css'
 
 export const Navbar = ()=>{
@@ -11,7 +11,7 @@ export const Navbar = ()=>{
     const user = JSON.parse(localStorage.getItem('user'));
 
     const dispatch = useDispatch();
-    const setBg = useSelector(({setNavBg})=>setNavBg.setNavBg)
+    const setBg = useSelector(({setNavBga})=>setNavBg.setNavBg)
     const [focused, setFocused] = useState(false)
     const onFocus = () => setFocused(true)
     const onBlur = () => setFocused(false);

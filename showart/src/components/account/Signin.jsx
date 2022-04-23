@@ -17,7 +17,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
   }));
  
 export const Signin = ()=>{
-    const {token,loading} = useSelector(store => store.login);
+    const {token,nickName,loading} = useSelector(store => store.login);
     const dispatch = useDispatch();
     const [form ,setForm] = useState({
         email:"",
@@ -30,10 +30,11 @@ export const Signin = ()=>{
     const handleSubmit = ()=>{
         if(!form.email || !form.password ) alert(" all fields required");
         else{
-            dispatch(login({email:form.email, password:form.password}))
+            dispatch(login({email:form.email, password:form.password}));
+            localStorage.setItem('user', JSON.stringify({nickName:nickName}))
         }
     }
-    if(token) return <Navigate to="/login"/>
+    if(token) return <Navigate to="/"/>
     return (
         <div className='register'>
             <Link to={'/'}>

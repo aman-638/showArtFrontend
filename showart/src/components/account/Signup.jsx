@@ -41,7 +41,7 @@ const handleSubmit = ()=>{
         // console.log(email, token)
     }
 }
-  if(token) return <Navigate to="/"/>
+  if(token) return <Navigate to="/login"/>
     return (
         <div className='register'>
             <div className='regNav'>
