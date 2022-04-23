@@ -24,9 +24,9 @@ const rootReducer = combineReducers({
     openPage:pageReducer,
     navSearch:navSearchReducer,
     setNavBg:NavBgReducer,
-    email:emailReducer,
-    password:passwordReducer,
-    emailStatus:emailStatusReducer,
+    // email:emailReducer,
+    // password:passwordReducer,
+    // emailStatus:emailStatusReducer,
 })
 
 export const store = createStore(rootReducer, enhancer)
