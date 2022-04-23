@@ -54,38 +54,67 @@ const ProductDetails = () => {
                 <h2 className="fkyou">Wanna Buy?</h2>
               </div>
               <br/> 
+
+
           <div className="jatinbhai">
                <div id="user-gender-btn">
                 <div id="mens-btn">Artist Name</div>
                 <div id="womens-btn">{product.artist_name}</div>
               </div>
               <br/>
+
+
+              <div id="user-gender-btn">
+
+<div id="mens-btn">Contacts:</div> 
+
+<div id="womens-btn">{product.phone}</div>
+</div>
+            
+              </div>
+
+
+
+
+              <br/>
+
+  
+               <div className="jatinbhai"> 
+           
+
+
+
+              <div id="user-gender-btn">
+                <div id="mens-btn">Category:</div>
+                <div id="womens-btn" className="city-upper-name" >{product.category}</div>
+              </div> 
+
+
+                 
+              <br/>
+              
+
+             
+
+              <div id="user-gender-btn">
+                <div id="mens-btn">Email:</div>
+                <div id="womens-btn" className="city-upper-name">{product.email}</div>
+              </div>
+              
+              </div>
+
+
+
+
+
+
+              <br/>
+
+
+
               <div id="user-gender-btn">
                 <div id="mens-btn">City:</div>
                 <div id="womens-btn" className="city-upper-name">{product.city}</div>
-              </div>
-              </div>
-
-              <br/>
-              <a href={`tel:+${product.phone}`} target="_newtab" style={{color: 'white'}}>
-              <div id="user-gender-btn">
-              <div id="mens-btn">Contacts:</div>
-           
-                <div id="womens-btn">{`${product.phone}`}</div>
-              </div>
-              </a>
-              <br/>
-              <a href={`mailto:${product.email}`} target="_newtab" style={{color: 'white'}}>
-              <div id="user-gender-btn">
-                <div id="mens-btn">Email:</div>
-                <div id="womens-btn">
-                  {product.email}</div>
-              </div>
-              </a>
-              <br/>
-              <div id="user-gender-btn">
-                <div id="mens-btn">Category:</div>
-                <div id="womens-btn">{`Indo ${product.category}`}</div>
               </div>
             
             
