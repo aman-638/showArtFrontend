@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { pageStatus } from '../../redux/action';
 import './base.css'
 import { Login } from './Login'
+import { Navbar } from './Navbar';
 import { SearchBox } from './SearchBox';
 
 export const Base = ()=>{
@@ -37,7 +38,8 @@ useEffect(() => {
     
     return(
         <div className='base' >
-            <div className='signinpage'   style={{display:page.openPage?'block':'none'}}></div>
+            <div className='signinpage' style={{display:page.openPage?'block':'none'}}>
+            </div>
             <div ref={buttonRef}  style={{
                     translateX:'-300px',                  
                     transform:page.openPage?'translateX(300px)':'translateX(-300px)',
@@ -54,8 +56,8 @@ useEffect(() => {
                     <div id='second'>
                        <div>Name: {el.art_name}</div>
                        <div>Artist Name: {el.artist_name}</div>
-                       <div>Price:{el.price}</div>
-                       <div>City:{el.city}</div>
+                       <div>Price: ₹{el.price}</div>
+                       <div>City: {el.city}</div>
                     </div>
                 </div>
               )}
