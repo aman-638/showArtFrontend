@@ -6,7 +6,7 @@ export default function Footer() {
     <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
         <div className='me-5 d-none d-lg-block'>
-          <span>Life Is Too Short For Artist So Better Get connected </span>
+          <span>Life Is Too Short For Artist So Better Get's connected </span>
         </div>
 
         <div>
