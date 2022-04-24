@@ -27,7 +27,7 @@ export const Base = ()=>{
     useEffect(()=>{
       axios.get('https://show-art.herokuapp.com/')
       .then(res=>setData(res.data.showArt));
-    })
+    },[])
 
 useEffect(() => {
     const handleResize = () => 
@@ -45,11 +45,11 @@ const handlesculp = () =>{
   .then(res=>setData(res.data.showArt));
 }
 const handlemandal = () =>{
-  axios.get('https://show-art.herokuapp.com/category?category=sculpture')
+  axios.get('https://show-art.herokuapp.com/category?category=mandal')
   .then(res=>setData(res.data.showArt));
 }
 const handlesti = () =>{
-  axios.get('https://show-art.herokuapp.com/category?category=sculpture')
+  axios.get('https://show-art.herokuapp.com/category?category=stitiching')
   .then(res=>setData(res.data.showArt));
 }
     
@@ -67,6 +67,10 @@ const handlesti = () =>{
             <div className='filters'>
               Sort By Category <button onClick={handlepaint}>Paintings</button> <button onClick={handlesculp}>Sculpture</button><button onClick={handlemandal}>Mandala</button><button onClick={handlesti}>Stitiching</button>
             </div>
+            <div className='pagination'>
+              <button>PREV</button>
+              <button>NEXT</button>
+            </div>
             <div onClick={()=>{navigate("/addart")}} className='addart'>ADD ARTS</div>
             <div className='art_card'>
               {tdata.map((el,i)=>
@@ -83,6 +87,7 @@ const handlesti = () =>{
                 </div>
               )}
             </div>
+            
         </div>
     )
 }
