@@ -67,6 +67,7 @@ const handlesti = () =>{
             <div className='filters'>
               Sort By Category <button onClick={handlepaint}>Paintings</button> <button onClick={handlesculp}>Sculpture</button><button onClick={handlemandal}>Mandala</button><button onClick={handlesti}>Stitiching</button>
             </div>
+            <div onClick={()=>{navigate("/addart")}} className='addart'>ADD ARTS</div>
             <div className='art_card'>
               {tdata.map((el,i)=>
                 <div onClick={()=>{navigate(`/${el._id}`)}} key={el._id}>
