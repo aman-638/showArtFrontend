@@ -17,7 +17,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
   }));
  
 export const Signin = ()=>{
-    const {token,nickName,loading} = useSelector(store => store.login);
+    const {token,loading} = useSelector(store => store.login);
     const dispatch = useDispatch();
     const [form ,setForm] = useState({
         email:"",
@@ -31,7 +31,6 @@ export const Signin = ()=>{
         if(!form.email || !form.password ) alert(" all fields required");
         else{
             dispatch(login({email:form.email, password:form.password}));
-            localStorage.setItem('user', JSON.stringify({nickName:nickName}))
         }
     }
     if(token) return <Navigate to="/"/>

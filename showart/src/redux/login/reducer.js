@@ -29,7 +29,8 @@ const initState = {
                 error:true,
                 isAuthenticated:false,
                 token:"",
-                email:""
+                email:"",
+                nickName:""
             }
         default:
             return store;
