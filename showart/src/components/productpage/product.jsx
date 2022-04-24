@@ -98,7 +98,7 @@ const ProductDetails = () => {
 
               <div id="user-gender-btn">
                 <div id="mens-btn">Email:</div>
-                <div id="womens-btn" className="city-upper-name">{product.email}</div>
+                <div id="womens-btn" className="city-upper-name"> <a href={`mailto:${product.email}`} target="_blank" >{product.email}</a></div>
               </div>
               
               </div>

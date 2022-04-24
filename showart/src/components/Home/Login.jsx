@@ -3,8 +3,10 @@ import './login.css'
 
 export const Login = () =>{
     const user = JSON.parse(localStorage.getItem('user'));
+    const logincheck = JSON.parse(localStorage.getItem('login'));
     const removeLocalSorage = () =>{
-        localStorage.setItem('user',JSON.stringify('lock'))
+        localStorage.setItem('user',JSON.stringify('lock'));
+        localStorage.setItem('login',JSON.stringify(false));
     }
     return (
         <div className="sign">

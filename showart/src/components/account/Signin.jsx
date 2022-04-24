@@ -31,6 +31,8 @@ export const Signin = ()=>{
         if(!form.email || !form.password ) alert(" all fields required");
         else{
             dispatch(login({email:form.email, password:form.password}));
+            localStorage.setItem('user', JSON.stringify({nickName:nickName}))
+            localStorage.setItem('login', JSON.stringify(true));
         }
     }
     if(token) return <Navigate to="/"/>
