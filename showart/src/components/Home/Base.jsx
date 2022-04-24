@@ -27,7 +27,7 @@ export const Base = ()=>{
     useEffect(()=>{
       axios.get('https://show-art.herokuapp.com/')
       .then(res=>setData(res.data.showArt));
-    })
+    },[])
 
 useEffect(() => {
     const handleResize = () => 
@@ -35,6 +35,23 @@ useEffect(() => {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
 }, [])
+
+const handlepaint = () =>{
+  axios.get('https://show-art.herokuapp.com/category?category=painting')
+  .then(res=>setData(res.data.showArt));
+}
+const handlesculp = () =>{
+  axios.get('https://show-art.herokuapp.com/category?category=sculpture')
+  .then(res=>setData(res.data.showArt));
+}
+const handlemandal = () =>{
+  axios.get('https://show-art.herokuapp.com/category?category=mandal')
+  .then(res=>setData(res.data.showArt));
+}
+const handlesti = () =>{
+  axios.get('https://show-art.herokuapp.com/category?category=stitiching')
+  .then(res=>setData(res.data.showArt));
+}
     
     return(
         <div className='base' >
@@ -47,6 +64,14 @@ useEffect(() => {
                      }} className='signin'>
                    <Login /> 
             </div>
+            <div className='filters'>
+              Sort By Category <button onClick={handlepaint}>Paintings</button> <button onClick={handlesculp}>Sculpture</button><button onClick={handlemandal}>Mandala</button><button onClick={handlesti}>Stitiching</button>
+            </div>
+            <div className='pagination'>
+              <button>PREV</button>
+              <button>NEXT</button>
+            </div>
+            <div onClick={()=>{navigate("/addart")}} className='addart'>ADD ARTS</div>
             <div className='art_card'>
               {tdata.map((el,i)=>
                 <div onClick={()=>{navigate(`/${el._id}`)}} key={el._id}>
@@ -62,6 +87,7 @@ useEffect(() => {
                 </div>
               )}
             </div>
+            
         </div>
     )
 }
@@ -90,3 +116,18 @@ const useOutsideClick = (ref) => {
   
     return outsieClick;
   };
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+ 
