@@ -50,7 +50,7 @@ export const Addart=()=>{
                </select><br></br>
                <label>ARTIST CONTACT</label><br></br>
                <input onChange={handlechange} type="number" id="phone"></input><br></br>
-               <label>ARTIST EMAI</label><br></br>
+               <label>ARTIST EMAIL</label><br></br>
                <input onChange={handlechange} type="text" id="email"></input><br></br>
               <input type="submit" ></input>
            </form>

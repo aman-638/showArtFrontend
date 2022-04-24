@@ -128,7 +128,9 @@
     border-bottom: black 2px solid;
     font-size: 25px;
     color: white;
+    cursor: pointer;
 }
+
 @media only screen and (max-width:685px) {
     #baseinp{
         width: 200px;
